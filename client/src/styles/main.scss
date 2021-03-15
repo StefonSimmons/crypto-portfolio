@@ -14,15 +14,21 @@ body{
   justify-content: space-evenly;
   align-items: center;
   height: 75px;
+  padding: 15px 0;
   color: $primary-color;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  border: solid green 1px;
+  font-size: 12px;
+  transition: all .5s ease;
+  // border: green solid 1px;
+
+  & img{
+    height: 100%;
+  }
 
   & nav{
     display: flex;
     justify-content: space-evenly;
-    border: solid green 1px;
     width: 33%
   }
 }
@@ -30,8 +36,8 @@ body{
 a{
   color: $primary-color;
   text-decoration: none;
-  border: green solid 1px;
-  transition: color .5s;
+  letter-spacing: 3px;
+  transition: color .5s ease;
 
   &:hover{
     color: $secondary-color;

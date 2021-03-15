@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from "react-router-dom"
+import mainLogo from "../assets/moon-transparent.png"
 
 export default function Header() {
   return (
     <header className="header">
-      <h1>Logo</h1>
+      <img src={mainLogo} alt="rocket to bitcoin"/>
       <button>Light</button>
       <nav>
         <Link to="/all">ALL</Link>

@@ -9,24 +9,29 @@ body {
   justify-content: space-evenly;
   align-items: center;
   height: 75px;
+  padding: 15px 0;
   color: white;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  border: solid green 1px;
+  font-size: 12px;
+  transition: all .5s ease;
+}
+
+.header img {
+  height: 100%;
 }
 
 .header nav {
   display: flex;
   justify-content: space-evenly;
-  border: solid green 1px;
   width: 33%;
 }
 
 a {
   color: white;
   text-decoration: none;
-  border: green solid 1px;
-  transition: color .5s;
+  letter-spacing: 3px;
+  transition: color .5s ease;
 }
 
 a:hover {
