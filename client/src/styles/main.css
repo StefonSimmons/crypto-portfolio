@@ -35,11 +35,6 @@
   font-weight: 500;
 }
 
-.body {
-  height: 100vh;
-  background: #1c1b1b;
-}
-
 .header {
   display: flex;
   justify-content: space-evenly;
@@ -63,14 +58,29 @@
   width: 33%;
 }
 
-a {
+.header .header-login {
+  color: #ffa959;
+  letter-spacing: 3px;
+  box-sizing: border-box;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+.header .header-login:hover {
+  color: black;
+  background: #ffa959;
+}
+
+.header a {
   color: white;
   text-decoration: none;
   letter-spacing: 3px;
   transition: color .5s ease;
 }
 
-a:hover {
+.header a:hover {
   color: #ffa959;
 }
 
@@ -78,12 +88,23 @@ main {
   border: green solid 1px;
 }
 
-hr {
-  width: 80%;
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  width: 90%;
+  margin: 0 auto;
+  color: white;
+  font-family: "Roboto", sans-serif;
 }
 
-.main {
-  height: 70%;
-  color: white;
+.main .asset-column {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.body {
+  height: 100vh;
+  background: #1c1b1b;
 }
 /*# sourceMappingURL=main.css.map */

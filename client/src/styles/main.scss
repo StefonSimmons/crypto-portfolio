@@ -1,54 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 @import "variables";
-@import "networth";
+@import "networth", "header", "portfolio";
 
 .body{
   height: 100vh;
   background: $dk-color;
-}
-.header{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 10%;
-  padding: 15px 0;
-  color: $primary-color;
-  font-family: $fontFamily;
-  font-weight: 500;
-  font-size: 12px;
-  transition: all .5s ease;
-
-  & img{
-    height: 100%;
-  }
-
-  & nav{
-    display: flex;
-    justify-content: space-evenly;
-    width: 33%
-  }
-}
-
-a{
-  color: $primary-color;
-  text-decoration: none;
-  letter-spacing: 3px;
-  transition: color .5s ease;
-
-  &:hover{
-    color: $secondary-color;
-  }
-}
-
-main{
-  border: green solid 1px;
-}
-hr{
-  width: 80%;
-}
-.main{
-  height: 70%;
-  color: $primary-color;
-  
 }

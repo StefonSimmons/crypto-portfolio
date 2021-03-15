@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-// import { Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import { getCoinMarketData } from "./services/coinmarketCrypto"
 import { getAirtableCrypto, getAirtableNetWorth } from "./services/airtableCrypto"
 import { getUniqueSymbols, sumTotals } from './utilities/helpers'
@@ -12,17 +12,19 @@ import Portfolio from './components/Portfolio'
 function App() {
   const [assets, setAssets] = useState([])
   const [accounts, setAccounts] = useState([])
+  const [airTableInputs, setInputs] = useState([])
   const [networth, setNetworth] = useState(0)
 
   const getCoinData = async (symbols) => {
     const res = await getCoinMarketData(symbols)
-    const data = res.data.data
+    const data = Object.values(res.data.data)
     setAssets(data)
   }
 
   const getTableData = async () => {
     const cryptoRes = await getAirtableCrypto()
     const cryptoRecords = cryptoRes.data.records
+    setInputs(cryptoRecords)
     getCoinData(getUniqueSymbols(cryptoRecords))
 
     const acctRes = await getAirtableNetWorth()
@@ -33,14 +35,23 @@ function App() {
 
   useEffect(() => {
     getTableData()
+    // eslint-disable-next-line
   }, [])
 
 
   return (
     <div className="body">
       <Header />
-      <Networth accounts={accounts} networth={networth}/>
-      <Portfolio/>
+      <Networth accounts={accounts} networth={networth} />
+      <Route path="/all">
+        <Portfolio assets={assets} airTableInputs={airTableInputs} />
+      </Route>
+      <Route path="/hodl-portfolio">
+        <Portfolio assets={assets} airTableInputs={airTableInputs} />
+      </Route>
+      <Route path="/trade-portfolio">
+        <Portfolio assets={assets} airTableInputs={airTableInputs} />
+      </Route>
     </div>
   );
 }

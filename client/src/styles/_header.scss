@@ -1,0 +1,48 @@
+.header{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10%;
+  padding: 15px 0;
+  color: $primary-color;
+  font-family: $fontFamily;
+  font-weight: 500;
+  font-size: 12px;
+  transition: all .5s ease;
+
+  & img{
+    height: 100%;
+  }
+
+  & nav{
+    display: flex;
+    justify-content: space-evenly;
+    width: 33%
+  }
+
+  & .header-login{
+    color: $secondary-color;
+    letter-spacing: 3px;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .25s ease;
+
+    &:hover{
+      color: black;
+      background: $secondary-color;
+    }
+  }
+  
+  a{
+    color: $primary-color;
+    text-decoration: none;
+    letter-spacing: 3px;
+    transition: color .5s ease;
+  
+    &:hover{
+      color: $secondary-color;
+    }
+  }
+}

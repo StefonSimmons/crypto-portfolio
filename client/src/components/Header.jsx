@@ -12,7 +12,7 @@ export default function Header() {
         <Link to="/hodl-portfolio">HODL PORT</Link>
         <Link to="/trade-portfolio">TRADE PORT</Link>
       </nav>
-      <h1>Login</h1>
+      <h1 className="header-login">Login</h1>
     </header>
   )
 }
