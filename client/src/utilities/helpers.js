@@ -7,3 +7,12 @@ export function getUniqueSymbols(records) {
   })
   return symbols
 }
+
+export function sumTotals(accounts) {
+  console.log(accounts)
+  const sum = accounts.reduce((acc, curr) => {
+    const currTotal = curr.fields && curr.fields.total
+    return acc + currTotal
+  }, 0)
+  return sum
+}

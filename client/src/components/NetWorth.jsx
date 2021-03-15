@@ -1,6 +1,8 @@
 import React from 'react'
 
-export default function NetWorth({ accounts }) {
+export default function Networth({ accounts, networth }) {
+
+
   return (
     <section className="networth-section">
       {
@@ -9,7 +11,6 @@ export default function NetWorth({ accounts }) {
           return (
             <div key={acc.id} className="account-column">
               <h5 className="account-name">{account}</h5>
-              <hr/>
               <h5 className="account-total">{total}</h5>
             </div>
           )
@@ -17,8 +18,7 @@ export default function NetWorth({ accounts }) {
       }
       <div className="account-column">
         <h5 className="account-name">Total</h5>
-        <hr/>
-        <h5 className="account-total">$$$$$</h5>
+        <h5 className="account-total">{networth}</h5>
       </div>
     </section>
   )

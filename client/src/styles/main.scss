@@ -14,11 +14,10 @@
   height: 10%;
   padding: 15px 0;
   color: $primary-color;
-  font-family: 'Roboto', sans-serif;
+  font-family: $fontFamily;
   font-weight: 500;
   font-size: 12px;
   transition: all .5s ease;
-  // border: green solid 1px;
 
   & img{
     height: 100%;
@@ -49,5 +48,7 @@ hr{
   width: 80%;
 }
 .main{
-  height: 70%
+  height: 70%;
+  color: $primary-color;
+  
 }

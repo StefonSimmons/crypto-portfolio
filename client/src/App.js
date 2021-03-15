@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react'
-import { Route } from 'react-router-dom'
+// import { Route } from 'react-router-dom'
 import { getCoinMarketData } from "./services/coinmarketCrypto"
 import { getAirtableCrypto, getAirtableNetWorth } from "./services/airtableCrypto"
-import { getUniqueSymbols } from './utilities/helpers'
+import { getUniqueSymbols, sumTotals } from './utilities/helpers'
 
 import Header from "./components/Header"
-import NetWorth from './components/NetWorth'
+import Networth from './components/Networth'
+import Portfolio from './components/Portfolio'
 
 
 function App() {
   const [assets, setAssets] = useState([])
-  const [networthAccts, setNetworthAccts] = useState([])
+  const [accounts, setAccounts] = useState([])
+  const [networth, setNetworth] = useState(0)
 
   const getCoinData = async (symbols) => {
     const res = await getCoinMarketData(symbols)
@@ -23,9 +25,10 @@ function App() {
     const cryptoRecords = cryptoRes.data.records
     getCoinData(getUniqueSymbols(cryptoRecords))
 
-    const networthRes = await getAirtableNetWorth()
-    const networthRecords = networthRes.data.records
-    setNetworthAccts(networthRecords)
+    const acctRes = await getAirtableNetWorth()
+    const acctRecords = acctRes.data.records
+    setAccounts(acctRecords)
+    setNetworth(sumTotals(acctRecords))
   }
 
   useEffect(() => {
@@ -36,11 +39,8 @@ function App() {
   return (
     <div className="body">
       <Header />
-      <NetWorth accounts={networthAccts} />
-      <hr/>
-      <main className="main">
-
-      </main>
+      <Networth accounts={accounts} networth={networth}/>
+      <Portfolio/>
     </div>
   );
 }

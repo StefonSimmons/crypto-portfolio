@@ -1,20 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 .networth-section {
   display: grid;
+  width: 80%;
+  margin: 0 auto;
   grid-template-columns: repeat(6, 1fr);
-  height: 20%;
+  font-family: "Roboto", sans-serif;
+  height: 15%;
   color: white;
+  border-top: solid rgba(255, 255, 255, 0.5) 1px;
+  border-bottom: solid rgba(255, 255, 255, 0.5) 1px;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .networth-section .account-column {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
-.networth-section hr {
-  width: 70%;
+.networth-section .account-name {
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: 500;
+  padding-bottom: 15px;
+}
+
+.networth-section .account-total {
+  color: white;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .body {
@@ -29,7 +47,7 @@
   height: 10%;
   padding: 15px 0;
   color: white;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 12px;
   transition: all .5s ease;
@@ -66,5 +84,6 @@ hr {
 
 .main {
   height: 70%;
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */
