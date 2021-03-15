@@ -1,11 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+@import "variables";
+@import "networth";
 
-$dk-color: #1c1b1b;
-$primary-color: white;
-$secondary-color: #ffa959;
-
-body{
+.body{
   height: 100vh;
   background: $dk-color;
 }
@@ -13,7 +11,7 @@ body{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 75px;
+  height: 10%;
   padding: 15px 0;
   color: $primary-color;
   font-family: 'Roboto', sans-serif;
@@ -42,4 +40,14 @@ a{
   &:hover{
     color: $secondary-color;
   }
+}
+
+main{
+  border: green solid 1px;
+}
+hr{
+  width: 80%;
+}
+.main{
+  height: 70%
 }
