@@ -1,18 +1,24 @@
-main{
-  border: green solid 1px;
-}
-
 .main{
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
   height: 70%;
   width: 90%;
   margin: 0 auto;
   color: $primary-color;
   font-family: $fontFamily;
+  letter-spacing: 3px;
 
-  & .asset-column{
+  & h5{
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    justify-content: left;
+    padding: 0 15px;
+    border-bottom: solid $trsp-primary-color 1px;
+
+  &.header{
+    border-top: solid $trsp-primary-color 1px;
+    padding: 20px 15px;
+  }
   }
 }
