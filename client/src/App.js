@@ -43,14 +43,14 @@ function App() {
     <div className="body">
       <Header />
       <Networth accounts={accounts} networth={networth} />
-      <Route path="/all">
-        <Portfolio assets={assets} airTableInputs={airTableInputs} />
+      <Route exact path="/all">
+        <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} />
       </Route>
       <Route path="/hodl-portfolio">
-        <Portfolio assets={assets} airTableInputs={airTableInputs} />
+        <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} />
       </Route>
       <Route path="/trade-portfolio">
-        <Portfolio assets={assets} airTableInputs={airTableInputs} />
+        <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} />
       </Route>
     </div>
   );

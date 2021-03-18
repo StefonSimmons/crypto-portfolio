@@ -1,13 +1,15 @@
 .main{
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(10, 1fr);
-  height: 70%;
+  grid-template-rows: repeat(8, 1fr);
+  max-height: 40%;
   width: 90%;
   margin: 0 auto;
+  padding-bottom: 30px;
   color: $primary-color;
   font-family: $fontFamily;
   letter-spacing: 3px;
+  overflow: scroll;
 
   & h5{
     display: grid;

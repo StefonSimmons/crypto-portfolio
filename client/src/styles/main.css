@@ -131,13 +131,15 @@
 .main {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(10, 1fr);
-  height: 70%;
+  grid-template-rows: repeat(8, 1fr);
+  max-height: 40%;
   width: 90%;
   margin: 0 auto;
+  padding-bottom: 30px;
   color: white;
   font-family: "Roboto", sans-serif;
   letter-spacing: 3px;
+  overflow: scroll;
 }
 
 .main h5 {
@@ -151,6 +153,10 @@
 .main h5.header {
   border-top: solid rgba(255, 255, 255, 0.5) 1px;
   padding: 20px 15px;
+}
+
+body, html {
+  overscroll-behavior: none;
 }
 
 .body {

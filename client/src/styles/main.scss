@@ -3,6 +3,10 @@
 @import "variables", "iteration";
 @import "networth", "header", "portfolio";
 
+body, html{
+  overscroll-behavior: none;
+}
+
 .body{
   height: 100vh;
   background: $dk-color;
