@@ -19,7 +19,6 @@ export default function Asset({ idx, asset, paired, allocation, numberOfCrypto,
   const percentOfBTCPort = (valueInBTC / btcHoldings) * 100
   const costBasis = allocation / numberOfCrypto
 
-  const upOrDown = valueInBTC > 0 ? 'green' : 'red'
 
   return (
 
