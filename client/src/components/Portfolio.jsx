@@ -19,6 +19,7 @@ export default function Portfolio({ cmcAssets, airTableInputs }) {
   ]
   const [portfolio, setPortfolio] = useState([])
   const location = useLocation()
+
   const [priceObj, setPriceObj] = useState({})
   const [investedUSD, setInvestedUSD] = useState(0)
   const [investedBTC, setInvestedBTC] = useState(0)
@@ -39,12 +40,29 @@ export default function Portfolio({ cmcAssets, airTableInputs }) {
       })
       setPortfolio(filtered)
     }
+  }, [airTableInputs, pathname])
+
+
+  useEffect(() => {
+    // Create Price Object of current crypto holdings
+    const getPrices = () => {
+      const obj = {}
+      cmcAssets.forEach(asset => {
+        const { symbol, quote: { USD: { price } } } = asset
+        obj[symbol] = price
+      })
+      setPriceObj(obj)
+    }
+    getPrices()
+  }, [location, cmcAssets])
+
+  useEffect(() => {
+    // PROBLEM: priceObj is coming back undefined on first render. I think I solved it by actually using the setter
+    // and putting this functionality after the useEffect priceObj formation.
 
     // SUM of Invested USD
     const usdPaired = airTableInputs.filter(asset => asset.fields.paired === "USD")
-    const sumInvestedUSD = usdPaired.reduce((acc, curr) => {
-      return acc + parseFloat(curr.fields.allocation)
-    }, 0)
+    const sumInvestedUSD = usdPaired.reduce((acc, curr) => acc + parseFloat(curr.fields.allocation), 0)
     setInvestedUSD(sumInvestedUSD)
 
     // SUM of Invested BTC
@@ -54,35 +72,19 @@ export default function Portfolio({ cmcAssets, airTableInputs }) {
 
     // Creating an array of values (value*allocation) to reduce to a total of USD holdings
     const usdHoldingValues = usdPaired.map(asset => {
-      return asset.fields.numberOfCrypto * priceObj[asset.fields.asset]
+      return parseFloat(asset.fields.numberOfCrypto) * priceObj[asset.fields.asset]
     })
     const sumOfUSDHoldings = usdHoldingValues.reduce((acc, curr) => acc + curr, 0)
     setUSDHoldings(sumOfUSDHoldings)
 
     // Creating an array of values (value*allocation) to reduce to a total of BTC holdings
     const btcHoldingValues = btcPaired.map(asset => {
-      return asset.fields.numberOfCrypto * priceObj[asset.fields.asset]
+      return parseFloat(asset.fields.numberOfCrypto) * priceObj[asset.fields.asset]
     })
-    const sumOfBTCHoldings = btcHoldingValues.reduce((acc, curr) => {
-      return acc + curr
-    }, 0)
+    const sumOfBTCHoldings = btcHoldingValues.reduce((acc, curr) => acc + curr, 0)
     setBTCHoldings(sumOfBTCHoldings / priceObj.BTC)
 
-  }, [airTableInputs, location.pathname])
-
-
-
-  useEffect(() => {
-    // Create Price Object of current crypto holdings
-    const getPrices = () => {
-      cmcAssets.forEach(asset => {
-        const { symbol, quote: { USD: { price } } } = asset
-        priceObj[symbol] = price
-      })
-    }
-    getPrices()
-  }, [location, cmcAssets])
-
+  }, [airTableInputs, priceObj])
 
   return (
     <main className="main">
@@ -100,7 +102,7 @@ export default function Portfolio({ cmcAssets, airTableInputs }) {
           )
         })
       }
-      <h5>Total Holdings: {pathname === "USD" ? usdHoldings.toFixed(2) : btcHoldings.toFixed(8)}</h5>
+      <h5>Total Holdings: {pathname === "/hodl-portfolio" ? `$${usdHoldings.toFixed(2)}` : btcHoldings.toFixed(8)}</h5>
     </main>
   )
 }

@@ -1,12 +1,13 @@
 const express = require("express")
 const cors = require("cors")
 const app = express()
+const logger = require('morgan')
 const axios = require("axios")
 require('dotenv').config()
 const PORT = process.env.PORT || 3000
 
 app.use(cors())
-
+app.use(logger('dev'))
 
 app.listen(PORT, () => {
   console.log(`server running on PORT ${PORT}`)
