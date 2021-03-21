@@ -3,7 +3,7 @@
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(8, 1fr);
   max-height: 40%;
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
   padding-bottom: 30px;
   color: $primary-color;
@@ -29,5 +29,11 @@
   color: $primary-color;
   font-family: $fontFamily;
   letter-spacing: 3px;
-  padding-left: 51px;
+  padding-left: 45px;
+}
+.green {
+  color: rgb(114, 179, 114)
+}
+.red{
+  color: rgb(190, 101, 101)
 }

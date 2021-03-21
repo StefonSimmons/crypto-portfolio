@@ -104,7 +104,9 @@ export default function Portfolio({ cmcAssets, airTableInputs }) {
           })
         }
       </main>
-      <h5 className="total-holdings">Total Holdings: {pathname === "/hodl-portfolio" ? `$${usdHoldings.toFixed(2)}` : btcHoldings.toFixed(8)}</h5>
+      {pathname !== "/all" &&
+        <h5 className="total-holdings">Total Holdings: {pathname === "/hodl-portfolio" ? `$${usdHoldings.toFixed(2)}` : btcHoldings.toFixed(8)}</h5>
+      }
     </React.Fragment>
   )
 }
