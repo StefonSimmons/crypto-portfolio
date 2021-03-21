@@ -87,22 +87,24 @@ export default function Portfolio({ cmcAssets, airTableInputs }) {
   }, [airTableInputs, priceObj])
 
   return (
-    <main className="main">
-      {headers.map((header, idx) => <h5 key={idx} className="header">{header}</h5>)}
-      {
-        portfolio.map((record, idx) => {
-          const { allocation, asset, numberOfCrypto, paired } = record.fields
-          return (
-            <Asset
-              allocation={allocation} asset={asset} key={idx} idx={idx}
-              numberOfCrypto={numberOfCrypto} paired={paired}
-              record={record} price={priceObj[asset]} priceObj={priceObj} investedUSD={investedUSD}
-              investedBTC={investedBTC} usdHoldings={usdHoldings} btcHoldings={btcHoldings}
-            />
-          )
-        })
-      }
-      <h5>Total Holdings: {pathname === "/hodl-portfolio" ? `$${usdHoldings.toFixed(2)}` : btcHoldings.toFixed(8)}</h5>
-    </main>
+    <React.Fragment>
+      <main className="main">
+        {headers.map((header, idx) => <h5 key={idx} className="header">{header}</h5>)}
+        {
+          portfolio.map((record, idx) => {
+            const { allocation, asset, numberOfCrypto, paired } = record.fields
+            return (
+              <Asset
+                allocation={allocation} asset={asset} key={idx} idx={idx}
+                numberOfCrypto={numberOfCrypto} paired={paired}
+                record={record} price={priceObj[asset]} priceObj={priceObj} investedUSD={investedUSD}
+                investedBTC={investedBTC} usdHoldings={usdHoldings} btcHoldings={btcHoldings}
+              />
+            )
+          })
+        }
+      </main>
+      <h5 className="total-holdings">Total Holdings: {pathname === "/hodl-portfolio" ? `$${usdHoldings.toFixed(2)}` : btcHoldings.toFixed(8)}</h5>
+    </React.Fragment>
   )
 }

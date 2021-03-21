@@ -18,9 +18,16 @@
     padding: 0 15px;
     border-bottom: solid $trsp-primary-color 1px;
 
-  &.header{
-    border-top: solid $trsp-primary-color 1px;
-    padding: 20px 15px;
+    &.header{
+      border-top: solid $trsp-primary-color 1px;
+      padding: 20px 15px;
+    }
   }
-  }
+}
+
+.total-holdings{
+  color: $primary-color;
+  font-family: $fontFamily;
+  letter-spacing: 3px;
+  padding-left: 51px;
 }
