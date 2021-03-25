@@ -5,10 +5,12 @@ import mainLogo from "../assets/moon-transparent.png"
 export default function Header() {
   return (
     <header className="header">
-      <img src={mainLogo} alt="rocket to bitcoin"/>
+      <Link to="/">
+        <img src={mainLogo} alt="rocket to bitcoin" />
+      </Link>
       <button>Light</button>
       <nav>
-        <Link to="/all">ALL</Link>
+        {/* <Link to="/all">ALL</Link> */}
         <Link to="/hodl-portfolio">HODL PORT</Link>
         <Link to="/trade-portfolio">TRADE PORT</Link>
       </nav>

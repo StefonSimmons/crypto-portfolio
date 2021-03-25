@@ -1,0 +1,35 @@
+.home{
+  color: $trsp-primary-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & h1{
+    letter-spacing: 10px;
+    font-size: 48px;
+    font-family: 'New Rocker', cursive;
+    margin: 15px;
+    animation: topSlide 4s ease-in-out;
+  }
+  & img{
+    height: 200px;
+    opacity: .75;
+    animation: fadeIn 5s ease-in-out;
+  }
+}
+
+@keyframes fadeIn {
+  from{opacity: 0;}
+  to{opacity: .75;}
+}
+
+@keyframes topSlide{
+  from{
+    transform: scale(.15);
+    opacity: 0;
+  }
+  to{
+    transform: scale(1);
+    opacity: 1;
+  }
+}

@@ -7,6 +7,7 @@ import { getUniqueSymbols, sumTotals } from './utilities/helpers'
 import Header from "./components/Header"
 import Networth from './components/Networth'
 import Portfolio from './components/Portfolio'
+import Home from './components/Home'
 
 
 function App() {
@@ -31,13 +32,13 @@ function App() {
       const cryptoRecords = cryptoRes.data.records
       setInputs(cryptoRecords)
       getCoinData(getUniqueSymbols(cryptoRecords))
-  
+
       const acctRes = await getAirtableNetWorth()
       const acctRecords = acctRes.data.records
       setAccounts(acctRecords)
       setNetworth(sumTotals(acctRecords))
     }
-  
+
     getTableData()
     // eslint-disable-next-line
   }, [reload])
@@ -47,15 +48,18 @@ function App() {
   return (
     <div className="body">
       <Header />
-      <Networth accounts={accounts} networth={networth} setReload={setReload} editFormID={editFormID} setEditFormID={setEditFormID}/>
-      <Route exact path="/all">
-        <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload}/>
+      <Networth accounts={accounts} networth={networth} setReload={setReload} editFormID={editFormID} setEditFormID={setEditFormID} />
+      <Route exact path="/">
+        <Home/>
       </Route>
-      <Route path="/hodl-portfolio">
+      {/* <Route exact path="/all">
         <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload}/>
+      </Route> */}
+      <Route path="/hodl-portfolio">
+        <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload} />
       </Route>
       <Route path="/trade-portfolio">
-        <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload}/>
+        <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload} />
       </Route>
     </div>
   );

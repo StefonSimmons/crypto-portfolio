@@ -3,6 +3,18 @@
   position: absolute;
 
   & input{
-    margin: 0 15px 
+    margin: 0 15px;
+    font-family: $fontFamily;
+    color: $primary-color;
+    background: $dk-color;
+    letter-spacing: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    width: 200px;
+    border-radius: 5px;
+    border: solid 1px $primary-color;
+    padding: 10px;
+    box-sizing: border-box; 
+
   }
 }
