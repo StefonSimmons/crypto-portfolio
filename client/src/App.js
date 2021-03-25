@@ -14,6 +14,7 @@ function App() {
   const [accounts, setAccounts] = useState([])
   const [airTableInputs, setInputs] = useState([])
   const [networth, setNetworth] = useState(0)
+  const [reload, setReload] = useState(false)
 
   const getCoinData = async (symbols) => {
     const res = await getCoinMarketData(symbols)
@@ -21,28 +22,30 @@ function App() {
     setAssets(data)
   }
 
-  const getTableData = async () => {
-    const cryptoRes = await getAirtableCrypto()
-    const cryptoRecords = cryptoRes.data.records
-    setInputs(cryptoRecords)
-    getCoinData(getUniqueSymbols(cryptoRecords))
-
-    const acctRes = await getAirtableNetWorth()
-    const acctRecords = acctRes.data.records
-    setAccounts(acctRecords)
-    setNetworth(sumTotals(acctRecords))
-  }
 
   useEffect(() => {
+    const getTableData = async () => {
+      const cryptoRes = await getAirtableCrypto()
+      const cryptoRecords = cryptoRes.data.records
+      setInputs(cryptoRecords)
+      getCoinData(getUniqueSymbols(cryptoRecords))
+  
+      const acctRes = await getAirtableNetWorth()
+      const acctRecords = acctRes.data.records
+      setAccounts(acctRecords)
+      setNetworth(sumTotals(acctRecords))
+    }
+  
     getTableData()
     // eslint-disable-next-line
-  }, [])
+  }, [reload])
+
 
 
   return (
     <div className="body">
       <Header />
-      <Networth accounts={accounts} networth={networth} />
+      <Networth accounts={accounts} networth={networth} setReload={setReload}/>
       <Route exact path="/all">
         <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} />
       </Route>

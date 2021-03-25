@@ -16,19 +16,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
   }
   & .account-name{
     color: $trsp-primary-color;
     letter-spacing: 3px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     padding-bottom: 15px;
   }
   & .account-total{
     color: $primary-color;
     letter-spacing: 3px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
+    cursor: pointer;
   }
 
 }

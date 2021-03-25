@@ -16,3 +16,8 @@ export const getAirtableNetWorth = async () => {
   const res = await axios.get(`${baseURL}/networth`, config)
   return res
 }
+
+export const postAirtableNetworth = async (info, id) => {
+  console.log({ fields: info })
+  await axios.put(`${baseURL}/networth/${id}`, { fields: info }, config)
+}

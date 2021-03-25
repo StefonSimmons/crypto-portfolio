@@ -67,7 +67,7 @@
 .networth-section .account-name {
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 3px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   padding-bottom: 15px;
 }
@@ -75,8 +75,9 @@
 .networth-section .account-total {
   color: white;
   letter-spacing: 3px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .header {
@@ -168,6 +169,42 @@
 
 .red {
   color: #be6565;
+}
+
+.networth-form-close {
+  color: rgba(175, 18, 7, 0.65);
+  font-weight: 700;
+  cursor: pointer;
+  transition: color .25s ease-in-out;
+}
+
+.networth-form-close:hover {
+  color: #af1207;
+}
+
+.networth-form {
+  margin: 0;
+  width: 115px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.networth-form .networth-input {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  background: #1c1b1b;
+  letter-spacing: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100px;
+  border-radius: 5px;
+  border: solid 1px white;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.networth-form .networth-sbmt-btn {
+  display: none;
 }
 
 body, html {
