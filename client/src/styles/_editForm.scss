@@ -1,4 +1,4 @@
-.networth-form-close{
+.edit-form-close{
   color: rgba(175, 18, 7, 0.65);
   font-weight: 700;
   cursor: pointer;
@@ -9,13 +9,13 @@
   }
 
 }
-.networth-form{
+.edit-form{
   margin: 0;
   width: 115px;
   display: flex;
   justify-content: space-between;
 
-  & .networth-input{
+  & .edit-input{
     font-family: $fontFamily;
     color: $primary-color;
     background: $dk-color;
@@ -29,7 +29,7 @@
     box-sizing: border-box;
   } 
 
-  & .networth-sbmt-btn{
+  & .edit-sbmt-btn{
     display: none
   }
 }

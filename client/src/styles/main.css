@@ -181,25 +181,25 @@
   }
 }
 
-.networth-form-close {
+.edit-form-close {
   color: rgba(175, 18, 7, 0.65);
   font-weight: 700;
   cursor: pointer;
   transition: color .25s ease-in-out;
 }
 
-.networth-form-close:hover {
+.edit-form-close:hover {
   color: #af1207;
 }
 
-.networth-form {
+.edit-form {
   margin: 0;
   width: 115px;
   display: flex;
   justify-content: space-between;
 }
 
-.networth-form .networth-input {
+.edit-form .edit-input {
   font-family: "Roboto", sans-serif;
   color: white;
   background: #1c1b1b;
@@ -213,7 +213,7 @@
   box-sizing: border-box;
 }
 
-.networth-form .networth-sbmt-btn {
+.edit-form .edit-sbmt-btn {
   display: none;
 }
 
@@ -225,12 +225,12 @@
   height: 80%;
 }
 
-.long-edit-form {
+.post-form {
   display: flex;
   position: absolute;
 }
 
-.long-edit-form input {
+.post-form input {
   margin: 0 15px;
 }
 

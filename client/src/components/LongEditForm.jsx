@@ -25,7 +25,7 @@ export default function LongEditForm({setReload, toggleNewForm}) {
   }
 
   return (
-    <form className="long-edit-form" onSubmit={handleSubmit}>
+    <form className="post-form" onSubmit={handleSubmit}>
       <input type="text" placeholder="Asset" name="asset" value={postData.asset} onChange={handleChange}/>
       <input type="text" placeholder="Paired" name="paired"value={postData.paired} onChange={handleChange}/>
       <input type="text" placeholder="Allocated" name="allocation" value={postData.allocation} onChange={handleChange}/>

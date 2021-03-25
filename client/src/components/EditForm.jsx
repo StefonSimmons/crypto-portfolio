@@ -39,10 +39,10 @@ export default function EditForm({ accountId, account, setReload, setEditFormID,
 
   return (
     <>
-      <form className="networth-form" onSubmit={handleSubmit}>
-        <span className="networth-form-close" onClick={() => setEditFormID("")}>x</span>
-        <input className="networth-input" onChange={(e) => handleChange(e)} type={total ? "number" : "text"} value={value} />
-        <input className="networth-sbmt-btn" type="submit" />
+      <form className="edit-form" onSubmit={handleSubmit}>
+        <span className="edit-form-close" onClick={() => setEditFormID("")}>x</span>
+        <input className="edit-input" onChange={(e) => handleChange(e)} type={total ? "number" : "text"} value={value} />
+        <input className="edit-sbmt-btn" type="submit" />
       </form>
     </>
   )
