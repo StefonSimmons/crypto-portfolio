@@ -30,18 +30,14 @@ export default function Portfolio({ cmcAssets, airTableInputs, editFormID, setEd
   const pathname = location.pathname
 
   useEffect(() => {
-    if (pathname === '/all') {
-      setPortfolio(airTableInputs)
-    } else {
-      const filtered = airTableInputs.filter(record => {
-        if (pathname === '/hodl-portfolio') {
-          return record.fields.paired === "USD"
-        } else {
-          return record.fields.paired === "BTC"
-        }
-      })
-      setPortfolio(filtered)
-    }
+    const filtered = airTableInputs.filter(record => {
+      if (pathname === '/hodl-portfolio') {
+        return record.fields.paired === "USD"
+      } else {
+        return record.fields.paired === "BTC"
+      }
+    })
+    setPortfolio(filtered)
   }, [airTableInputs, pathname])
 
 
@@ -108,12 +104,10 @@ export default function Portfolio({ cmcAssets, airTableInputs, editFormID, setEd
         }
         <section>
           <img src={newAssetIcon} alt="new icon" className="new-icon" onClick={() => toggleNewForm(!newForm)} />
-          {newForm && <LongEditForm setReload={setReload} toggleNewForm={toggleNewForm}/>}
+          {newForm && <LongEditForm setReload={setReload} toggleNewForm={toggleNewForm} />}
         </section>
       </main>
-      {pathname !== "/all" &&
-        <h5 className="total-holdings">Total Holdings: {pathname === "/hodl-portfolio" ? `$${usdHoldings.toFixed(2)}` : btcHoldings.toFixed(8)}</h5>
-      }
+      <h5 className="total-holdings">Total Holdings: {pathname === "/hodl-portfolio" ? `$${usdHoldings.toFixed(2)}` : btcHoldings.toFixed(8)}</h5>
     </React.Fragment>
   )
 }

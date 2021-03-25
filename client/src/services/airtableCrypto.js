@@ -28,3 +28,7 @@ export const updateAirtableCrypto = async (info, id) => {
 export const postAirtableCrypto = async (info) => {
   await axios.post(`${baseURL}/crypto`, { fields: info }, config)
 }
+
+export const deleteAirtableCrypto = async (id) => {
+  await axios.delete(`${baseURL}/crypto/${id}`, config)
+}

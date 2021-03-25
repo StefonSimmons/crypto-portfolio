@@ -52,9 +52,6 @@ function App() {
       <Route exact path="/">
         <Home/>
       </Route>
-      {/* <Route exact path="/all">
-        <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload}/>
-      </Route> */}
       <Route path="/hodl-portfolio">
         <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload} />
       </Route>

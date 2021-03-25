@@ -266,6 +266,44 @@
   height: 80%;
 }
 
+.select {
+  cursor: pointer;
+  transition: all .25s ease-in-out;
+}
+
+.select:hover {
+  color: #af1207;
+}
+
+.delete-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 12px;
+}
+
+.delete-container .delete-asset {
+  color: rgba(175, 18, 7, 0.65);
+  font-weight: 700;
+  cursor: pointer;
+  transition: color .25s ease-in-out;
+}
+
+.delete-container .delete-asset:hover {
+  color: #af1207;
+}
+
+.delete-container .escape-delete {
+  color: rgba(46, 175, 7, 0.65);
+  font-weight: 700;
+  cursor: pointer;
+  transition: color .25s ease-in-out;
+}
+
+.delete-container .escape-delete:hover {
+  color: #2eaf07;
+}
+
 .post-form {
   display: flex;
   position: absolute;
