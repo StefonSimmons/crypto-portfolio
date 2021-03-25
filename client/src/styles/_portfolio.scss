@@ -31,10 +31,17 @@
   letter-spacing: 3px;
   padding-left: 45px;
 }
-.green {
-  color: rgb(114, 179, 114)
-}
-.red{
-  color: rgb(190, 101, 101)
+
+.new-icon{
+  margin: 15px 0;
+  cursor: pointer;
+
+  &:hover{
+    animation: spin 1s ease-in-out;
+  }
 }
 
+@keyframes spin{
+  from {transform: rotate(180deg)}
+  to {transform: rotate(360deg)}
+}

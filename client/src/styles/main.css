@@ -163,12 +163,22 @@
   padding-left: 45px;
 }
 
-.green {
-  color: #72b372;
+.new-icon {
+  margin: 15px 0;
+  cursor: pointer;
 }
 
-.red {
-  color: #be6565;
+.new-icon:hover {
+  animation: spin 1s ease-in-out;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .networth-form-close {

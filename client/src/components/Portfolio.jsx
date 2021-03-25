@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import Asset from './Asset'
-
+import newAssetIcon from '../assets/new-circle-icon.png'
 
 export default function Portfolio({ cmcAssets, airTableInputs, editFormID, setEditFormID, setReload }) {
 
@@ -104,6 +104,7 @@ export default function Portfolio({ cmcAssets, airTableInputs, editFormID, setEd
             )
           })
         }
+        <img src={newAssetIcon} alt="new icon" className="new-icon"/>
       </main>
       {pathname !== "/all" &&
         <h5 className="total-holdings">Total Holdings: {pathname === "/hodl-portfolio" ? `$${usdHoldings.toFixed(2)}` : btcHoldings.toFixed(8)}</h5>
