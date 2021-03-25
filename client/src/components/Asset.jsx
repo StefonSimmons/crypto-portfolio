@@ -28,11 +28,11 @@ export default function Asset({ idx, asset, paired, allocation, numberOfCrypto,
         <>
           <h5 className={`row-${idx} col-1`}>{`${asset}-${paired}`}</h5>
           {editFormID === `${idx}-2`
-            ? <div className={`row-${idx} col-2 edit-form`} ><EditForm setEditFormID={setEditFormID} /></div>
+          ? <div className={`row-${idx} col-2 edit-form`} ><EditForm setEditFormID={setEditFormID} asset={asset} paired={paired} allocation={allocation} accountId={record.id} numberOfCrypto={numberOfCrypto} setReload={setReload} eform="allocation"/></div>
             : <h5 className={`row-${idx} col-2`} onClick={() => setEditFormID(`${idx}-2`)}>{paired === "USD" ? `$${allocation}` : parseFloat(allocation)}</h5>
           }
           { editFormID === `${idx}-3`
-            ? <div className={`row-${idx} col-3 edit-form`} ><EditForm setEditFormID={setEditFormID} /></div>
+          ? <div className={`row-${idx} col-3 edit-form`} ><EditForm setEditFormID={setEditFormID} asset={asset} paired={paired} allocation={allocation} numberOfCrypto={numberOfCrypto} accountId={record.id} setReload={setReload} eform="numofcrypto"/></div>
             : <h5 className={`row-${idx} col-3`} onClick={() => setEditFormID(`${idx}-3`)}>{parseFloat(numberOfCrypto)}</h5>
           }
           <h5 className={`row-${idx} col-4`}>{paired === "USD" ? `$${price.toFixed(2)}` : priceInBTC.toFixed(8)}</h5>
