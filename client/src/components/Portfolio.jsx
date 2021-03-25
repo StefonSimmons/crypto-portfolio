@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import Asset from './Asset'
 import newAssetIcon from '../assets/new-circle-icon.png'
+import LongEditForm from './LongEditForm'
 
 export default function Portfolio({ cmcAssets, airTableInputs, editFormID, setEditFormID, setReload }) {
 
@@ -18,6 +19,7 @@ export default function Portfolio({ cmcAssets, airTableInputs, editFormID, setEd
     "Cost Basis"
   ]
   const [portfolio, setPortfolio] = useState([])
+  const [newForm, toggleNewForm] = useState(false)
   const location = useLocation()
 
   const [priceObj, setPriceObj] = useState({})
@@ -104,7 +106,10 @@ export default function Portfolio({ cmcAssets, airTableInputs, editFormID, setEd
             )
           })
         }
-        <img src={newAssetIcon} alt="new icon" className="new-icon"/>
+        <section>
+          <img src={newAssetIcon} alt="new icon" className="new-icon" onClick={() => toggleNewForm(!newForm)} />
+          {newForm && <LongEditForm setReload={setReload} toggleNewForm={toggleNewForm}/>}
+        </section>
       </main>
       {pathname !== "/all" &&
         <h5 className="total-holdings">Total Holdings: {pathname === "/hodl-portfolio" ? `$${usdHoldings.toFixed(2)}` : btcHoldings.toFixed(8)}</h5>

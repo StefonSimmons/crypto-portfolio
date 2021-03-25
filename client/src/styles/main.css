@@ -225,6 +225,15 @@
   height: 80%;
 }
 
+.long-edit-form {
+  display: flex;
+  position: absolute;
+}
+
+.long-edit-form input {
+  margin: 0 15px;
+}
+
 body, html {
   overscroll-behavior: none;
 }
