@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import Asset from './Asset'
 
 
-export default function Portfolio({ cmcAssets, airTableInputs }) {
+export default function Portfolio({ cmcAssets, airTableInputs, editFormID, setEditFormID, setReload }) {
 
   const headers = [
     "Asset",
@@ -99,6 +99,7 @@ export default function Portfolio({ cmcAssets, airTableInputs }) {
                 numberOfCrypto={numberOfCrypto} paired={paired}
                 record={record} price={priceObj[asset]} priceObj={priceObj} investedUSD={investedUSD}
                 investedBTC={investedBTC} usdHoldings={usdHoldings} btcHoldings={btcHoldings}
+                editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload}
               />
             )
           })

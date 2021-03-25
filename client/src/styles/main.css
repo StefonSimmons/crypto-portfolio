@@ -207,6 +207,14 @@
   display: none;
 }
 
+.col-2, .col-3 {
+  cursor: pointer;
+}
+
+.edit-form .networth-form {
+  height: 80%;
+}
+
 body, html {
   overscroll-behavior: none;
 }

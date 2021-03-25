@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { postAirtableNetworth } from '../services/airtableCrypto'
 
-export default function NetEditForm({ accountId, account, setReload, setEditFormID, total }) {
+export default function EditForm({ accountId, account, setReload, setEditFormID, total }) {
 
   const [networth, setNetWorth] = useState(total)
 

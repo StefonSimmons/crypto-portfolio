@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
-import NetEditForm from './NetEditForm'
+import React from 'react'
+import EditForm from './EditForm'
 
-export default function Networth({ accounts, networth, setReload }) {
-  const [editFormID, setEditFormID] = useState('')
+export default function Networth({ accounts, networth, setReload, editFormID, setEditFormID }) {
 
   return (
     <section className="networth-section">
@@ -13,7 +12,7 @@ export default function Networth({ accounts, networth, setReload }) {
             <div key={acc.id} className="account-column">
               <h5 className="account-name">{account}</h5>
               {editFormID === acc.id
-                ? <NetEditForm accountId={acc.id} account={account} setReload={setReload} setEditFormID={setEditFormID} total={total}/>
+                ? <EditForm accountId={acc.id} account={account} setReload={setReload} setEditFormID={setEditFormID} total={total}/>
                 : <h5
                   className="account-total"
                   onClick={() => setEditFormID(acc.id)}

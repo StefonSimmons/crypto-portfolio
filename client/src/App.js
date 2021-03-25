@@ -14,6 +14,8 @@ function App() {
   const [accounts, setAccounts] = useState([])
   const [airTableInputs, setInputs] = useState([])
   const [networth, setNetworth] = useState(0)
+  const [editFormID, setEditFormID] = useState('')
+
   const [reload, setReload] = useState(false)
 
   const getCoinData = async (symbols) => {
@@ -45,15 +47,15 @@ function App() {
   return (
     <div className="body">
       <Header />
-      <Networth accounts={accounts} networth={networth} setReload={setReload}/>
+      <Networth accounts={accounts} networth={networth} setReload={setReload} editFormID={editFormID} setEditFormID={setEditFormID}/>
       <Route exact path="/all">
-        <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} />
+        <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload}/>
       </Route>
       <Route path="/hodl-portfolio">
-        <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} />
+        <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload}/>
       </Route>
       <Route path="/trade-portfolio">
-        <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} />
+        <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload}/>
       </Route>
     </div>
   );
