@@ -63,8 +63,8 @@ const login = async (req, res) => {
   const { username, password } = req.body
   try {
     const account = await User.findOne({ username })
-    console.log(account)
-    if (await bcrypt.compare(password, account.password_digest)) {
+    const matched = await bcrypt.compare(password, account.password_digest)
+    if (matched) {
       const payload = {
         id: account._id,
         username: account.username,
@@ -73,6 +73,8 @@ const login = async (req, res) => {
       const token = jwt.sign(payload, TOKEN_KEY)
 
       res.status(201).json({ account, token })
+    } else {
+      res.json({ error: "unauthorized" })
     }
   } catch (error) {
     console.error(`Error Logging In: ${error.message}`)

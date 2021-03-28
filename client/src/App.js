@@ -13,6 +13,7 @@ import Login from './components/Login'
 import CreateAccount from './components/CreateAccount'
 
 function App() {
+  const [user, setUser] = useState(null)
   const [assets, setAssets] = useState([])
   const [accounts, setAccounts] = useState([])
   const [airTableInputs, setInputs] = useState([])
@@ -49,7 +50,7 @@ function App() {
 
   return (
     <div className="body">
-      <Header />
+      <Header user={user}/>
       <Networth accounts={accounts} networth={networth} setReload={setReload} editFormID={editFormID} setEditFormID={setEditFormID} />
       <Route exact path="/">
         <Home />
@@ -61,10 +62,10 @@ function App() {
         <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload} />
       </Route>
       <Route path="/login">
-        <Login loginAccount={loginAccount} />
+        <Login loginAccount={loginAccount} setUser={setUser}/>
       </Route>
       <Route path="/create-account">
-        <CreateAccount createAccount={createAccount} />
+        <CreateAccount createAccount={createAccount} setuser={setUser}/>
       </Route>
     </div>
   );

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
-export default function Login({ loginAccount }) {
-
+export default function Login({ loginAccount, setUser }) {
+  const history = useHistory()
   const [userCredentials, setUserCredentials] = useState({
     username: "",
     password: ""
@@ -10,7 +10,9 @@ export default function Login({ loginAccount }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    loginAccount(userCredentials)
+    const user = await loginAccount(userCredentials)
+    setUser(user)
+    history.push('/')
   }
 
   const handleChange = (e) => {
