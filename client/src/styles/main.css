@@ -197,7 +197,12 @@
   padding: 20px 15px;
 }
 
-.total-holdings {
+.totals {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.totals .total-holdings {
   color: white;
   font-family: "Roboto", sans-serif;
   letter-spacing: 3px;

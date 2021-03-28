@@ -107,7 +107,11 @@ export default function Portfolio({ cmcAssets, airTableInputs, editFormID, setEd
           {newForm && <LongEditForm setReload={setReload} toggleNewForm={toggleNewForm} />}
         </section>
       </main>
-      <h5 className="total-holdings">Total Holdings: {pathname === "/hodl-portfolio" ? `$${usdHoldings.toFixed(2)}` : btcHoldings.toFixed(8)}</h5>
+      <section className="totals">
+        <h5 className="total-holdings">Total Allocation: {pathname === "/hodl-portfolio" ? `$${investedUSD.toFixed(2)}` : `${investedBTC.toFixed(8)} BTC`}</h5>
+        <h5 className="total-holdings">Total Holdings: {pathname === "/hodl-portfolio" ? `$${usdHoldings.toFixed(2)}` : `${btcHoldings.toFixed(8)} BTC`}</h5>
+        <h5 className="total-holdings">Total Earned: {pathname === "/hodl-portfolio" ? `$${(usdHoldings - investedUSD).toFixed(2)}` : `${(btcHoldings - investedBTC).toFixed(8)} BTC`}</h5>
+      </section>
     </React.Fragment>
   )
 }

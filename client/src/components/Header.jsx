@@ -3,11 +3,12 @@ import { Link, useHistory } from "react-router-dom"
 import mainLogo from "../assets/moon-transparent.png"
 import { logout } from "../services/authentication"
 
-export default function Header({ user }) {
+export default function Header({ user, setReload }) {
   const history = useHistory()
-  
+
   const logoutAccount = () => {
     logout()
+    setReload(curr => !curr)
     history.push('/')
   }
 

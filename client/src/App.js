@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Route } from 'react-router-dom'
+import { Redirect, Route } from 'react-router-dom'
 import { getCoinMarketData } from "./services/coinmarketCrypto"
 import { getAirtableCrypto, getAirtableNetWorth } from "./services/airtableCrypto"
 import { createAccount, loginAccount, verify } from './services/authentication'
@@ -21,6 +21,7 @@ function App() {
   const [editFormID, setEditFormID] = useState('')
 
   const [reload, setReload] = useState(false)
+  const [reVerify, setReverify] = useState(false)
 
   const getCoinData = async (symbols) => {
     const res = await getCoinMarketData(symbols)
@@ -34,7 +35,7 @@ function App() {
       setUser(account)
     }
     verifyAccount()
-  }, [])
+  }, [reVerify])
 
   useEffect(() => {
     const getTableData = async () => {
@@ -57,15 +58,17 @@ function App() {
 
   return (
     <div className="body">
-      <Header user={user} />
-      <Networth accounts={accounts} networth={networth} setReload={setReload} editFormID={editFormID} setEditFormID={setEditFormID} />
+      <Header user={user} setReload={setReverify} />
+      <Networth accounts={accounts} networth={networth} setReload={setReload} editFormID={editFormID} setEditFormID={setEditFormID} user={user} />
       <Route exact path="/">
-        <Home />
+        <Home user={user} />
       </Route>
       <Route path="/hodl-portfolio">
+        {user?.username !== 'sound' && <Redirect to="/login" />}
         <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload} />
       </Route>
       <Route path="/trade-portfolio">
+        {user?.username !== 'sound' && <Redirect to="/login" />}
         <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload} />
       </Route>
       <Route path="/login">

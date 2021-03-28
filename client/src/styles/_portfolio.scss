@@ -25,12 +25,17 @@
   }
 }
 
-.total-holdings{
-  color: $primary-color;
-  font-family: $fontFamily;
-  letter-spacing: 3px;
-  padding-left: 45px;
+.totals{
+  display: flex;
+  justify-content: space-evenly;
+  & .total-holdings{
+    color: $primary-color;
+    font-family: $fontFamily;
+    letter-spacing: 3px;
+    padding-left: 45px;
+  }
 }
+
 
 .new-icon{
   margin: 15px 0;
