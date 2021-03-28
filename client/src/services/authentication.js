@@ -26,4 +26,6 @@ export const verify = async () => {
   }
 }
 
-// export logout
+export const logout = () => {
+  localStorage.removeItem('token')
+}

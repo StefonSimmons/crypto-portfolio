@@ -1,8 +1,16 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import mainLogo from "../assets/moon-transparent.png"
+import { logout } from "../services/authentication"
 
 export default function Header({ user }) {
+  const history = useHistory()
+  
+  const logoutAccount = () => {
+    logout()
+    history.push('/')
+  }
+
   return (
     <header className="header">
       <Link to="/">
@@ -14,7 +22,7 @@ export default function Header({ user }) {
         <Link to="/trade-portfolio">TRADE PORT</Link>
       </nav>
       { user
-        ? <h1 className="header-login">Logout</h1>
+        ? <h1 className="header-login" onClick={logoutAccount}>Logout</h1>
         : <Link to="/login">
           <h1 className="header-login">Login</h1>
         </Link>
