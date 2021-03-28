@@ -325,7 +325,7 @@
 }
 
 .login-form {
-  height: 200px;
+  height: 300px;
   width: 300px;
   margin: 0 auto;
   display: flex;
@@ -334,7 +334,7 @@
 
 .login-form input {
   background: #1c1b1b;
-  height: 50%;
+  height: 33.33333%;
   padding: 20px;
   font-family: "Roboto", sans-serif;
   letter-spacing: 2.5px;
@@ -350,7 +350,7 @@
 }
 
 .create-account-form {
-  height: 300px;
+  height: 400px;
   width: 300px;
   margin: 0 auto;
   display: flex;
@@ -359,7 +359,7 @@
 
 .create-account-form input {
   background: #1c1b1b;
-  height: 33.33333%;
+  height: 25%;
   padding: 20px;
   font-family: "Roboto", sans-serif;
   letter-spacing: 2.5px;
