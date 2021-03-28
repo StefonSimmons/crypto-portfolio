@@ -13,6 +13,7 @@ export default function EditForm({ accountId, account, setReload, setEditFormID,
     } else {
       setValue(allocation)
     }
+    // eslint-disable-next-line
   }, [])
 
   const handleSubmit = async (e) => {

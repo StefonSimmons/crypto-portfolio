@@ -1,6 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=New+Rocker:wght@400;500&display=swap');
-@import "variables", "iteration";
+@import "variables", "iteration", "mixins";
 @import "home","networth", "header", "portfolio", "editForm", "assets", "postForm", "login";
 
 body, html{

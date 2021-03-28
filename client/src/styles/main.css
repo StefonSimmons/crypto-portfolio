@@ -324,7 +324,7 @@
   box-sizing: border-box;
 }
 
-.login-container {
+.login-form {
   height: 200px;
   width: 300px;
   margin: 0 auto;
@@ -332,7 +332,7 @@
   flex-direction: column;
 }
 
-.login-container input {
+.login-form input {
   background: #1c1b1b;
   height: 50%;
   padding: 20px;
@@ -344,9 +344,51 @@
   margin: 5px 0;
 }
 
-.login-container input::placeholder {
+.login-form input::placeholder {
   color: rgba(255, 255, 255, 0.5);
   font-family: "Roboto", sans-serif;
+}
+
+.create-account-form {
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-account-form input {
+  background: #1c1b1b;
+  height: 33.33333%;
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 2.5px;
+  color: white;
+  border: 1px rgba(255, 255, 255, 0.5) solid;
+  border-radius: 3px;
+  margin: 5px 0;
+}
+
+.create-account-form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.account-msg {
+  color: white;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 2.5px;
+  transition: color .5s ease;
+  cursor: pointer;
+}
+
+.account-msg:hover {
+  color: #ffa959;
 }
 
 body, html {

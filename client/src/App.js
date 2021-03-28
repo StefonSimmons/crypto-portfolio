@@ -9,6 +9,7 @@ import Networth from './components/Networth'
 import Portfolio from './components/Portfolio'
 import Home from './components/Home'
 import Login from './components/Login'
+import CreateAccount from './components/CreateAccount'
 
 function App() {
   const [assets, setAssets] = useState([])
@@ -47,10 +48,10 @@ function App() {
 
   return (
     <div className="body">
-      <Header/>
+      <Header />
       <Networth accounts={accounts} networth={networth} setReload={setReload} editFormID={editFormID} setEditFormID={setEditFormID} />
       <Route exact path="/">
-        <Home/>
+        <Home />
       </Route>
       <Route path="/hodl-portfolio">
         <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload} />
@@ -59,7 +60,10 @@ function App() {
         <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload} />
       </Route>
       <Route path="/login">
-        <Login/>
+        <Login />
+      </Route>
+      <Route path="/create-account">
+        <CreateAccount />
       </Route>
     </div>
   );
