@@ -5,3 +5,8 @@ export const createAccount = async (userInfo) => {
   console.log(res)
   return res
 }
+
+export const loginAccount = async (userInfo) => {
+  const res = await api.post('/login', userInfo)
+  return res
+}

@@ -30,6 +30,8 @@ const getCrypto = async (req, res) => {
 // ===================================
 //  Auth Controllers
 // ===================================
+
+// CREATE ACCOUNT
 const createAccount = async (req, res) => {
   const { username, email, password } = req.body
   const password_digest = await bcrypt.hash(password, 11)
@@ -56,4 +58,26 @@ const createAccount = async (req, res) => {
   }
 }
 
-module.exports = { getCrypto, createAccount }
+// LOGIN
+const login = async (req, res) => {
+  const { username, password } = req.body
+  try {
+    const account = await User.findOne({ username })
+    console.log(account)
+    if (await bcrypt.compare(password, account.password_digest)) {
+      const payload = {
+        id: account._id,
+        username: account.username,
+        email: account.email
+      }
+      const token = jwt.sign(payload, TOKEN_KEY)
+
+      res.status(201).json({ account, token })
+    }
+  } catch (error) {
+    console.error(`Error Logging In: ${error.message}`)
+  }
+}
+
+
+module.exports = { getCrypto, createAccount, login }
