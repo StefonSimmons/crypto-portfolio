@@ -324,6 +324,31 @@
   box-sizing: border-box;
 }
 
+.login-container {
+  height: 200px;
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container input {
+  background: #1c1b1b;
+  height: 50%;
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 2.5px;
+  color: white;
+  border: 1px rgba(255, 255, 255, 0.5) solid;
+  border-radius: 3px;
+  margin: 5px 0;
+}
+
+.login-container input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Roboto", sans-serif;
+}
+
 body, html {
   overscroll-behavior: none;
 }

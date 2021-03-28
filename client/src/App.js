@@ -8,7 +8,7 @@ import Header from "./components/Header"
 import Networth from './components/Networth'
 import Portfolio from './components/Portfolio'
 import Home from './components/Home'
-
+import Login from './components/Login'
 
 function App() {
   const [assets, setAssets] = useState([])
@@ -47,7 +47,7 @@ function App() {
 
   return (
     <div className="body">
-      <Header />
+      <Header/>
       <Networth accounts={accounts} networth={networth} setReload={setReload} editFormID={editFormID} setEditFormID={setEditFormID} />
       <Route exact path="/">
         <Home/>
@@ -57,6 +57,9 @@ function App() {
       </Route>
       <Route path="/trade-portfolio">
         <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload} />
+      </Route>
+      <Route path="/login">
+        <Login/>
       </Route>
     </div>
   );

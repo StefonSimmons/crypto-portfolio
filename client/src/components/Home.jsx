@@ -1,7 +1,7 @@
-import React from 'react'
 import mainLogo from "../assets/moon-transparent.png"
 
-export default function Home() {
+export default function Home({ cheers }) {
+
   return (
     <div className="home">
       <h1>Welcome To Your</h1>

@@ -1,0 +1,25 @@
+.login-container{
+  height: 200px;
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  & input{
+    background: $dk-color;
+    height: (100%/2);
+    padding: 20px;
+    font-family: $fontFamily;
+    letter-spacing: 2.5px;
+    color: $primary-color;
+    border: 1px $trsp-primary-color solid;
+    border-radius: 3px;
+    margin: 5px 0;
+
+    &::placeholder{
+      color: $trsp-primary-color;
+      font-family: $fontFamily;
+
+    }
+  }
+}
