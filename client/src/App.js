@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Route } from 'react-router-dom'
 import { getCoinMarketData } from "./services/coinmarketCrypto"
 import { getAirtableCrypto, getAirtableNetWorth } from "./services/airtableCrypto"
+import {createAccount} from './services/authentication'
 import { getUniqueSymbols, sumTotals } from './utilities/helpers'
 
 import Header from "./components/Header"
@@ -63,7 +64,7 @@ function App() {
         <Login />
       </Route>
       <Route path="/create-account">
-        <CreateAccount />
+        <CreateAccount createAccount={createAccount}/>
       </Route>
     </div>
   );

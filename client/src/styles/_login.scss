@@ -20,3 +20,12 @@ a{
     color: $secondary-color;
   }
 }
+
+.auth-submit-btn{
+  transition: all .25s ease-in-out;
+  &:hover{
+    background: $secondary-color;
+    color: $dk-color;
+    font-weight: 700;
+  }
+}

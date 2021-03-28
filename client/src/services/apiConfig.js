@@ -1,4 +1,4 @@
-// Making an instance of axios to call my express app.
+// Making an instance of axios to call my express app (cmc and auth).
 // https://coinmarketcap.com/api/documentation/v1/#section/Quick-Start-Guide
 // "Secure your API Key by routing calls through your own backend service."
 

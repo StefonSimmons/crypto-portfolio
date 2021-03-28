@@ -391,6 +391,16 @@ a {
   color: #ffa959;
 }
 
+.auth-submit-btn {
+  transition: all .25s ease-in-out;
+}
+
+.auth-submit-btn:hover {
+  background: #ffa959;
+  color: #1c1b1b;
+  font-weight: 700;
+}
+
 body, html {
   overscroll-behavior: none;
 }

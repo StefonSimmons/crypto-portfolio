@@ -1,5 +1,9 @@
 const axios = require("axios")
+const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
+
 require('dotenv').config()
+const TOKEN_KEY = process.env.TOKEN_KEY
 
 const User = require("./models")
 
@@ -26,12 +30,30 @@ const getCrypto = async (req, res) => {
 // ===================================
 //  Auth Controllers
 // ===================================
-const createUser = async (req, res) => {
+const createAccount = async (req, res) => {
+  const { username, email, password } = req.body
+  const password_digest = await bcrypt.hash(password, 11)
+
   try {
-    
+    const newAccount = new User({
+      username,
+      email,
+      password_digest
+    })
+    await newAccount.save()
+
+    const payload = {
+      id: newAccount._id,
+      username: newAccount.username,
+      email: newAccount.email
+    }
+    const token = jwt.sign(payload, TOKEN_KEY)
+
+    res.status(201).json({ newAccount, token })
+
   } catch (error) {
-    console.error(`Error: ${error.message}`)
+    console.error(`Error in Account Creation: ${error.message}`)
   }
 }
 
-module.exports = { getCrypto }
+module.exports = { getCrypto, createAccount }

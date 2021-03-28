@@ -1,17 +1,14 @@
-const express = require("express")
-const cors = require("cors")
-const app = express()
-const logger = require('morgan')
 const PORT = process.env.PORT || 3000
-const { getCrypto } = require("./controllers")
+const app = require("./app")
+const db = require("./db")
 
-app.use(cors())
-app.use(logger('dev'))
+const { getCrypto, createAccount } = require("./controllers")
+
+db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 app.listen(PORT, () => {
   console.log(`server running on PORT ${PORT}`)
 })
 
-
-
 app.get('/apiResponse?:symbols', getCrypto)
+app.post('/signUp', createAccount)
