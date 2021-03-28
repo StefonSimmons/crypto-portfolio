@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Route } from 'react-router-dom'
 import { getCoinMarketData } from "./services/coinmarketCrypto"
 import { getAirtableCrypto, getAirtableNetWorth } from "./services/airtableCrypto"
-import { createAccount, loginAccount } from './services/authentication'
+import { createAccount, loginAccount, verify } from './services/authentication'
 import { getUniqueSymbols, sumTotals } from './utilities/helpers'
 
 import Header from "./components/Header"
@@ -28,6 +28,13 @@ function App() {
     setAssets(data)
   }
 
+  useEffect(() => {
+    async function verifyAccount() {
+      const account = await verify()
+      setUser(account)
+    }
+    verifyAccount()
+  }, [])
 
   useEffect(() => {
     const getTableData = async () => {
@@ -50,7 +57,7 @@ function App() {
 
   return (
     <div className="body">
-      <Header user={user}/>
+      <Header user={user} />
       <Networth accounts={accounts} networth={networth} setReload={setReload} editFormID={editFormID} setEditFormID={setEditFormID} />
       <Route exact path="/">
         <Home />
@@ -62,10 +69,10 @@ function App() {
         <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload} />
       </Route>
       <Route path="/login">
-        <Login loginAccount={loginAccount} setUser={setUser}/>
+        <Login loginAccount={loginAccount} setUser={setUser} />
       </Route>
       <Route path="/create-account">
-        <CreateAccount createAccount={createAccount} setuser={setUser}/>
+        <CreateAccount createAccount={createAccount} setuser={setUser} />
       </Route>
     </div>
   );

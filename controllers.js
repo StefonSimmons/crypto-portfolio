@@ -81,5 +81,18 @@ const login = async (req, res) => {
   }
 }
 
+// VERIFY
+const verify = async (req, res) => {
+  const { token } = req.body
+  try {
+    const payload = jwt.verify(token, TOKEN_KEY)
+    const account = await User.findById(payload.id)
+    // console.log(account)
+    res.json(account)
+  } catch (error) {
+    console.error(`Error Verifying User: ${error.message}`)
+  }
 
-module.exports = { getCrypto, createAccount, login }
+}
+
+module.exports = { getCrypto, createAccount, login, verify }

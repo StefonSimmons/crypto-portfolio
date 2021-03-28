@@ -2,7 +2,7 @@ const PORT = process.env.PORT || 3000
 const app = require("./app")
 const db = require("./db")
 
-const { getCrypto, createAccount, login } = require("./controllers")
+const { getCrypto, createAccount, login, verify } = require("./controllers")
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
@@ -13,3 +13,4 @@ app.listen(PORT, () => {
 app.get('/apiResponse?:symbols', getCrypto)
 app.post('/signUp', createAccount)
 app.post('/login', login)
+app.post('/verify', verify)

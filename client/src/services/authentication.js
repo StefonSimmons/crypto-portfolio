@@ -17,3 +17,13 @@ export const loginAccount = async (userInfo) => {
   }
   return res.data.account
 }
+
+export const verify = async () => {
+  const token = localStorage.getItem('token')
+  if (token) {
+    const res = await api.post('/verify', { token })
+    return res.data
+  }
+}
+
+// export logout
