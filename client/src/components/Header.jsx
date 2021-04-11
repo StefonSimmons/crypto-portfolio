@@ -3,12 +3,12 @@ import { Link, useHistory } from "react-router-dom"
 import mainLogo from "../assets/moon-transparent.png"
 import { logout } from "../services/authentication"
 
-export default function Header({ user, setReload }) {
+export default function Header({ user, setVerify, setReload }) {
   const history = useHistory()
 
   const logoutAccount = () => {
     logout()
-    setReload(curr => !curr)
+    setVerify(curr => !curr)
     history.push('/')
   }
 
@@ -17,10 +17,11 @@ export default function Header({ user, setReload }) {
       <Link to="/">
         <img src={mainLogo} alt="rocket to bitcoin" />
       </Link>
-      <button>{user ? user.username : "Celebrate"}</button>
+      <button onClick={() => setReload(curr => !curr)}>{user ? `${user.username} / refresh` : ""}</button>
       <nav>
         <Link to="/hodl-portfolio">HODL PORT</Link>
         <Link to="/trade-portfolio">TRADE PORT</Link>
+        <a href="https://www.tradingview.com/chart/ov8EXKCF/" target="_blank" rel="noreferrer">Trading View</a>
       </nav>
       { user
         ? <h1 className="header-login" onClick={logoutAccount}>Logout</h1>

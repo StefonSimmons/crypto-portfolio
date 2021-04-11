@@ -58,7 +58,7 @@ function App() {
 
   return (
     <div className="body">
-      <Header user={user} setReload={setReverify} />
+      <Header user={user} setReverify={setReverify} setReload={setReload}/>
       <Networth accounts={accounts} networth={networth} setReload={setReload} editFormID={editFormID} setEditFormID={setEditFormID} user={user} />
       <Route exact path="/">
         <Home user={user} />

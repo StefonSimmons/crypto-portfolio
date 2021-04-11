@@ -8,7 +8,7 @@ const config = {
 }
 
 export const getAirtableCrypto = async () => {
-  const res = await axios.get(`${baseURL}/crypto`, config)
+  const res = await axios.get(`${baseURL}/crypto?view=Grid%20view`, config)
   return res
 }
 
