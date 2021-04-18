@@ -34,7 +34,19 @@
       background: $secondary-color;
     }
   }
-  
+  button{
+    color: $primary-color;
+    font-family: $fontFamily;
+    background: $dk-color;
+    border: $secondary-color 1px solid;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all .5s ease;
+    &:hover{
+      background: $secondary-color;
+      color: $dk-color;
+    }
+  }
   a{
     color: $primary-color;
     text-decoration: none;

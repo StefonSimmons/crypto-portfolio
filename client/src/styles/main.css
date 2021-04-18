@@ -159,6 +159,21 @@
   background: #ffa959;
 }
 
+.header button {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  background: #1c1b1b;
+  border: #ffa959 1px solid;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all .5s ease;
+}
+
+.header button:hover {
+  background: #ffa959;
+  color: #1c1b1b;
+}
+
 .header a {
   color: white;
   text-decoration: none;
