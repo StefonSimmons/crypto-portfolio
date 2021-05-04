@@ -85,7 +85,7 @@ export default function Portfolio({ cmcAssets, airTableInputs, editFormID, setEd
   }, [airTableInputs, priceObj])
 
   return (
-    <React.Fragment>
+    <div>
       <main className="main">
         {headers.map((header, idx) => <h5 key={idx} className="header">{header}</h5>)}
         {
@@ -112,6 +112,6 @@ export default function Portfolio({ cmcAssets, airTableInputs, editFormID, setEd
         <h5 className="total-holdings">Total Holdings: {pathname === "/hodl-portfolio" ? `$${usdHoldings.toFixed(2)}` : `${btcHoldings.toFixed(8)} BTC`}</h5>
         <h5 className="total-holdings">Total Earned: {pathname === "/hodl-portfolio" ? `$${(usdHoldings - investedUSD).toFixed(2)}` : `${(btcHoldings - investedBTC).toFixed(8)} BTC`}</h5>
       </section>
-    </React.Fragment>
+    </div>
   )
 }

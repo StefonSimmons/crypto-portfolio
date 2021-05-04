@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(8, 1fr);
-  max-height: 40%;
+  max-height: 50%;
   width: 95%;
   margin: 0 auto;
   padding-bottom: 30px;
@@ -29,6 +29,7 @@
 .totals{
   display: flex;
   justify-content: space-evenly;
+  padding-bottom: 30px;
   & .total-holdings{
     color: $primary-color;
     font-family: $fontFamily;
