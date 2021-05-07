@@ -5,7 +5,7 @@ let MONGODB_URI = process.env.PROD_MONGODB || 'mongodb://127.0.0.1:27017/cryptoA
 mongoose
   .connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => {
-    console.log('Successfully connected to MongoDB.')
+    console.log(`Successfully connected to MongoDB at ${MONGODB_URI}`)
   })
   .catch(e => {
     console.error('Connection error', e.message)

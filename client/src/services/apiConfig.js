@@ -6,6 +6,6 @@ import axios from "axios"
 
 const expressAPI = process.env.NODE_ENV === "development"
   ? "http://localhost:3000"
-  : null
+  : "https://crypto-app-api-1.herokuapp.com/"
 
 export const api = axios.create({baseURL: expressAPI})
