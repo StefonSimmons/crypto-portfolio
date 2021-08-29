@@ -64,11 +64,11 @@ function App() {
         <Home user={user} />
       </Route>
       <Route path="/hodl-portfolio">
-        {user?.username !== 'sound' && <Redirect to="/login" />}
+        {user?.username !== 'sound' && <Redirect to="/" />}
         <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload} />
       </Route>
       <Route path="/trade-portfolio">
-        {user?.username !== 'sound' && <Redirect to="/login" />}
+        {user?.username !== 'sound' && <Redirect to="/" />}
         <Portfolio cmcAssets={assets} airTableInputs={airTableInputs} editFormID={editFormID} setEditFormID={setEditFormID} setReload={setReload} />
       </Route>
       <Route path="/login">
